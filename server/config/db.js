@@ -12,6 +12,6 @@ const pool = new Pool({
 
 pool.connect()
   .then(() => console.log('✅ Connected to ChamazShop database'))
-  .catch((err) => console.error('❌ Database connection error:', err.message));
+  .catch((err) => console.error('❌ DB connection error:', err.message));
 
 module.exports = pool;
