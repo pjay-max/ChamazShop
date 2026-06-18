@@ -1,17 +1,14 @@
-const { Pool } = require('pg');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
-const pool = new Pool({
-  host: 'aws-0-eu-central-1.pooler.supabase.com',
-  port: 6543,
-  database: 'postgres',
-  user: 'postgres.ziydnmlwaaaqkjdyprty',
-  password: 'ChamazShop2024!',
-  ssl: { rejectUnauthorized: false }
-});
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.DATABASE_URL);
+    console.log('✅ Connected to ChamazShop database');
+  } catch (err) {
+    console.error('❌ Database connection error:', err.message);
+    process.exit(1);
+  }
+};
 
-pool.connect()
-  .then(() => console.log('✅ Connected to ChamazShop database'))
-  .catch((err) => console.error('❌ DB connection error:', err.message));
-
-module.exports = pool;
+module.exports = connectDB;
