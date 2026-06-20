@@ -8,7 +8,7 @@ const connectDB = async () => {
       socketTimeoutMS: 45000,
       family: 4
     });
-    console.log('✅ Connected to ChamazShop database');
+    console.log('✅ Connected to ChamazShop DB');
   } catch (err) {
     console.error('❌ Database connection error:', err.message);
     process.exit(1);
